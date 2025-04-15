@@ -1,0 +1,693 @@
+/* src/styles.css */
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+    color: #333;
+  }
+  
+  .App {
+    min-height: 100vh;
+    padding: 2rem;
+  }
+  
+  /* TodoApp Styles */
+  .TodoApp-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .TodoApp-container.light {
+    background: white;
+  }
+  
+  .TodoApp-container.dark {
+    background: #1f2937;
+    color: #e5e7eb;
+  }
+  
+  .TodoApp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .TodoApp-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .TodoApp-controls {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .TodoApp-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .TodoApp-theme-button {
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+  }
+  
+  .TodoApp-theme-button:hover {
+    background: linear-gradient(90deg, #f59e0b, #d97706);
+  }
+  
+  .TodoApp-logout-button,
+  .TodoApp-login-button {
+    background: linear-gradient(90deg, #f87171, #ef4444);
+  }
+  
+  .TodoApp-logout-button:hover,
+  .TodoApp-login-button:hover {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+  }
+  
+  .TodoApp-submit-button {
+    background: linear-gradient(90deg, #34d399, #10b981);
+  }
+  
+  .TodoApp-submit-button:hover {
+    background: linear-gradient(90deg, #10b981, #059669);
+  }
+  
+  .TodoApp-delete-button {
+    background: linear-gradient(90deg, #f87171, #ef4444);
+  }
+  
+  .TodoApp-delete-button:hover {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+  }
+  
+  .TodoApp-refresh-button {
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+  }
+  
+  .TodoApp-refresh-button:hover {
+    background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  }
+  
+  .TodoApp-button:hover {
+    transform: translateY(-2px);
+  }
+  
+  .TodoApp-form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .TodoApp-form-field {
+    flex: 1;
+  }
+  
+  .TodoApp-input {
+    width: 100%;
+    padding: 0.7rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .TodoApp-container.dark .TodoApp-input {
+    background: #374151;
+    color: #e5e7eb;
+    border-color: #4b5563;
+  }
+  
+  .TodoApp-input:focus {
+    border-color: #3b82f6;
+    outline: none;
+  }
+  
+  .TodoApp-error {
+    color: #ef4444;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+    display: block;
+  }
+  
+  .TodoApp-loading {
+    text-align: center;
+    color: #718096;
+    font-style: italic;
+    margin: 1rem 0;
+  }
+  
+  .TodoApp-todo-list {
+    margin-bottom: 2rem;
+  }
+  
+  .TodoApp-todo-item {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    background: #f8fafc;
+    transition: background 0.3s ease;
+  }
+  
+  .TodoApp-container.dark .TodoApp-todo-item {
+    background: #374151;
+  }
+  
+  .TodoApp-todo-item:hover {
+    background: #e2e8f0;
+  }
+  
+  .TodoApp-container.dark .TodoApp-todo-item:hover {
+    background: #4b5563;
+  }
+  
+  .TodoApp-todo-checkbox {
+    margin-right: 1rem;
+  }
+  
+  .TodoApp-todo-text {
+    flex: 1;
+  }
+  
+  .TodoApp-todo-text.completed {
+    text-decoration: line-through;
+    color: #718096;
+  }
+  
+  .TodoApp-no-todos {
+    text-align: center;
+    color: #94a3b8;
+    font-style: italic;
+  }
+  
+  .TodoApp-login {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Existing styles from previous code */
+  .UserCard-card {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    border: none;
+    border-radius: 12px;
+    margin: 1rem 0;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .UserCard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .UserCard-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+    border: 3px solid #e0e7ff;
+    transition: transform 0.3s ease;
+  }
+  
+  .UserCard-avatar:hover {
+    transform: scale(1.1);
+  }
+  
+  .UserCard-info {
+    flex: 1;
+  }
+  
+  .UserCard-info h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #2d3748;
+  }
+  
+  .UserCard-info p {
+    margin: 0.3rem 0;
+    color: #718096;
+    font-size: 0.95rem;
+  }
+  
+  .UserCard-active,
+  .UserCard-inactive {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  
+  .UserCard-active {
+    background: linear-gradient(90deg, #34d399, #10b981);
+    color: white;
+  }
+  
+  .UserCard-inactive {
+    background: linear-gradient(90deg, #f87171, #ef4444);
+    color: white;
+  }
+  
+  .UserCard-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .UserCard-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .UserCard-view {
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+  }
+  
+  .UserCard-view:hover {
+    background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  }
+  
+  .UserCard-edit {
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+  }
+  
+  .UserCard-edit:hover {
+    background: linear-gradient(90deg, #f59e0b, #d97706);
+  }
+  
+  .UserCard-delete {
+    background: linear-gradient(90deg, #f87171, #ef4444);
+  }
+  
+  .UserCard-delete:hover {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+  }
+  
+  .UserCard-button:hover {
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 600px) {
+    .UserCard-card {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: center;
+    }
+  
+    .UserCard-avatar {
+      margin: 0 auto 1rem;
+    }
+  
+    .UserCard-actions {
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .UserCard-button {
+      flex: 1;
+    }
+  }
+  
+  .UserList-container {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  .UserList-filters {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .UserList-search,
+  .UserList-dropdown {
+    padding: 0.6rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .UserList-search:focus,
+  .UserList-dropdown:focus {
+    border-color: #3b82f6;
+    outline: none;
+  }
+  
+  .UserList-search {
+    flex: 1;
+  }
+  
+  .UserList-dropdown {
+    background: #f8fafc;
+  }
+  
+  .UserList-noUsers {
+    text-align: center;
+    color: #94a3b8;
+    font-style: italic;
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 600px) {
+    .UserList-filters {
+      flex-direction: column;
+    }
+  
+    .UserList-search,
+    .UserList-dropdown {
+      width: 100%;
+    }
+  }
+  
+  .UserForm-form {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .UserForm-field {
+    margin-bottom: 1.5rem;
+  }
+  
+  .UserForm-field label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2d3748;
+  }
+  
+  .UserForm-field input,
+  .UserForm-field select {
+    width: 100%;
+    padding: 0.7rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .UserForm-field input:focus,
+  .UserForm-field select:focus {
+    border-color: #3b82f6;
+    outline: none;
+  }
+  
+  .UserForm-avatar-preview {
+    display: block;
+    margin: 0 auto 0.5rem;
+    object-fit: cover;
+  }
+  
+  .UserForm-error {
+    color: #ef4444;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+    display: block;
+  }
+  
+  .UserForm-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .UserForm-submit,
+  .UserForm-cancel {
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .UserForm-submit {
+    background: linear-gradient(90deg, #34d399, #10b981);
+    color: white;
+  }
+  
+  .UserForm-cancel {
+    background: linear-gradient(90deg, #f87171, #ef4444);
+    color: white;
+  }
+  
+  .UserForm-submit:hover,
+  .UserForm-cancel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .UserProfile-profile {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  .UserProfile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    border: 4px solid #e0e7ff;
+    transition: transform 0.3s ease;
+  }
+  
+  .UserProfile-avatar:hover {
+    transform: scale(1.05);
+  }
+  
+  .UserProfile-profile h2 {
+    margin: 0 0 1.2rem;
+    font-size: 2rem;
+    color: #2d3748;
+  }
+  
+  .UserProfile-profile p {
+    margin: 0.7rem 0;
+    font-size: 1.1rem;
+    color: #4b5563;
+  }
+  
+  .UserProfile-active,
+  .UserProfile-inactive {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  .UserProfile-active {
+    background: linear-gradient(90deg, #34d399, #10b981);
+    color: white;
+  }
+  
+  .UserProfile-inactive {
+    background: linear-gradient(90deg, #f87171, #ef4444);
+    color: white;
+  }
+  
+  .UserProfile-actions {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+  
+  .UserProfile-edit,
+  .UserProfile-back {
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .UserProfile-edit {
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+    color: white;
+  }
+  
+  .UserProfile-back {
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    color: white;
+  }
+  
+  .UserProfile-edit:hover,
+  .UserProfile-back:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .UserDashboard-dashboard {
+    padding: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .UserDashboard-dashboard h1 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 2.5rem;
+    color: #1f2937;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .UserDashboard-addButton,
+  .UserDashboard-deleteButton {
+    display: block;
+    margin: 1.5rem auto;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .UserDashboard-addButton {
+    background: linear-gradient(90deg, #34d399, #10b981);
+    color: white;
+  }
+  
+  .UserDashboard-deleteButton {
+    background: linear-gradient(90deg, #f87171, #ef4444);
+    color: white;
+  }
+  
+  .UserDashboard-addButton:hover,
+  .UserDashboard-deleteButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .UserDashboard-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .UserDashboard-modalContent {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: scaleIn 0.3s ease-in-out;
+  }
+  
+  .UserDashboard-modalContent p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #4b5563;
+  }
+  
+  .UserDashboard-confirm,
+  .UserDashboard-cancel {
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .UserDashboard-confirm {
+    background: linear-gradient(90deg, #f87171, #ef4444);
+    color: white;
+  }
+  
+  .UserDashboard-cancel {
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    color: white;
+  }
+  
+  .UserDashboard-confirm:hover,
+  .UserDashboard-cancel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
